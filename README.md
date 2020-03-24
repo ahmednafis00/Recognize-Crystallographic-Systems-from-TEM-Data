@@ -14,3 +14,5 @@ DiffZoneAxes:
 
 Change made to GeometricSimulation2:
 - Added code to display the simulation results with the particular zone axis used as the title. 
+
+The rest of the files required to run the programs successfully will be added after the completion of the project.
