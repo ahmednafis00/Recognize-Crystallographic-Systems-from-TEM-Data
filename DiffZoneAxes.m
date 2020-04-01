@@ -1,11 +1,11 @@
-% Simulate diffraction pattern in Transmission Election Microscopy using
-% different zone axes
+% Simulate diffraction pattern in Transmission Election Microscopy using different zone axes
 % Author: Nafis Ahmed
-% Last Updated: 03/23/2020
+% Last Updated: 03/31/2020
 
 clear;
 % generate combinations of various zone axes
-x = [0 0 1];              % Set of possible digits in zone axes
+comb = 'Enter the set of digits you want in different combinations for the zone axis in the form [x y z].\n';
+x = input(comb);            % Set of possible digits in zone axes
 K = 3;                      % Length of each permutation
 
 % Create all possible permutations (with repetition) of letters stored in x
@@ -16,7 +16,7 @@ C = [C{:}];                 % Obtain all permutations
 C = unique(C, 'rows');      % delete any repeated rows
 
 % present an option to load or build lattice structure
-que = 'Press Enter to build a lattice structure or type in the full file path to load a pre-existing one .\n';
+que = 'Press Enter to build a lattice structure or type in the full file path to load a pre-existing one.\n';
 choice = input(que, 's');
 choice = strtrim(choice);
 
@@ -68,8 +68,7 @@ Detector.SpotFWHMy = 0.3;
 Detector.DistanceToSample = 200; 
 Detector.Offset = [0 0];
 
-% simulate diffraction pattern in Transmission Election Microscopy using
-% different zone axes
+% simulate diffraction pattern in Transmission Election Microscopy using different zone axes
 for n = 1:length(C)
     Lattice.Normal = C(n,:);
     I = GeometricalSimulation2(Lattice,Probe,Detector,-6:6,n);
